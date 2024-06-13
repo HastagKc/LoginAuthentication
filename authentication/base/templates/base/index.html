@@ -1,0 +1,69 @@
+<!-- extends base  -->
+{% extends "base/base.html" %}
+
+<!-- load static  -->
+{% load static %}
+
+
+<!-- title  -->
+{% block title %}
+login
+{% endblock title %}
+
+<!-- content  -->
+{% block content %}
+
+
+
+
+{% if request.user.is_authenticated %}
+
+
+<div class="container__profile">
+
+
+    <div class="profile">
+        <div class="profile_header">
+
+            <div class="profile_img"></div>
+        </div>
+
+        <div class="profile_body">
+            <h2>Your Profile</h2>
+            <p>Username: {{request.user.username}}</p>
+            <p>Firstname: {{request.user.first_name}}</p>
+            <p>Lastname: {{request.user.last_name}}</p>
+            <p>Email: {{request.user.email}}</p>
+
+            <a href="{%url 'change_password'%}" style="color: black;">Change Password</a>
+
+            <div class="log_out_btn">
+                <a href="{%url 'log_out'%}">
+                    <button class="animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                            </path>
+                        </svg>
+                        <span class="text">Logout</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                            </path>
+                        </svg>
+                    </button>
+
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+{% endblock content %}
